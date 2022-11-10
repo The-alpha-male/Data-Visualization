@@ -1,12 +1,11 @@
-import streamlit as st  # pip install streamlit
-import pandas as pd  # pip install pandas
-import plotly.express as px  # pip install plotly-express
-import base64  # Standard Python Module
-from io import StringIO, BytesIO  # Standard Python Module
+import streamlit as st 
+import pandas as pd
+import plotly.express as px
+import base64
+from io import StringIO, BytesIO
 
 
 def generate_excel_download_link(df):
-    # Credit Excel: https://discuss.streamlit.io/t/how-to-add-a-download-excel-csv-function-to-a-button/4474/5
     towrite = BytesIO()
     df.to_excel(towrite, encoding="utf-8", index=False, header=True)  # write to BytesIO buffer
     towrite.seek(0)  # reset pointer
@@ -15,7 +14,6 @@ def generate_excel_download_link(df):
     return st.markdown(href, unsafe_allow_html=True)
 
 def generate_html_download_link(fig):
-    # Credit Plotly: https://discuss.streamlit.io/t/download-plotly-plot-as-html/4426/2
     towrite = StringIO()
     fig.write_html(towrite, include_plotlyjs="cdn")
     towrite = BytesIO(towrite.getvalue().encode())
