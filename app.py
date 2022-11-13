@@ -24,7 +24,7 @@ def generate_html_download_link(fig):
 
 st.set_page_config(page_title='Data Visuals')
 st.title('Data Visuals 📈')
-st.subheader('Feed me with your Excel file')
+st.subheader('Enter your Excel file')
 
 uploaded_file = st.file_uploader('Choose a XLSX file', type='xlsx')
 if uploaded_file:
